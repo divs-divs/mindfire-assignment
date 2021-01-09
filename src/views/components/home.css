@@ -1,0 +1,444 @@
+Container  {
+    height: 100%;
+    margin: 0;
+}
+
+
+#filters > Button {
+    border-radius: 16px;
+    background-color: #e0e0d1;
+    font-size : 17px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+#filters > .active, Button:hover{
+    background-color: lightblue;
+}
+
+.section-enquiry {
+    height: 84vh;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+  }
+
+#hid, #icon {
+    color: #0275d8;
+}
+
+#icon {
+    font-size: 15px;
+}
+
+.light {
+    font-size: 12px;
+}
+
+/* #control-tower-back {
+    background-color:  white;
+    border-bottom: 1px solid #d0d0d0;
+} */
+
+.icon-text {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.label {
+    color: white;
+    padding: 8px;
+    font-family: Arial;
+    font-size: 17px;
+    margin-left: 70%;
+    margin-top: 10px;
+  }
+  
+#statusBar1 {
+        height: 3px;
+        width: 20%;
+    }
+#statusBar2 {
+    height: 3px;
+    width: 20%;
+}
+#statusBar3 {
+    height: 3px;
+    width: 20%;
+}
+#statusBar4 {
+    height: 3px;
+    width: 20%;
+}
+#statusBar5 {
+    height: 3px;
+    width: 20%;
+}
+
+#sitStatus {
+    margin-top: -8px;
+    color: "#63c2de"
+
+}
+
+#statusBar1::before {
+    content: "Enquiry Recieved";
+    color: #111;
+    font-size: 10px;
+    position: absolute;
+    font-weight: bold;
+    left: 6px;
+    bottom: 20px;
+}
+#statusBar2::before {
+    content: "Enquiry Floated";
+    font-weight: bold;
+    color: #111;
+    font-size: 10px;
+    position: absolute;
+    left: 20%;
+    bottom: 20px;
+}
+#statusBar3::before {
+    content: "Rates Received";
+    font-weight: bold;
+    color: #111;
+    font-size: 10px;
+    position: absolute;
+    left: 40%;
+    bottom: 20px;
+}
+#statusBar4::before {
+    content: "Quote Sent";
+    font-weight: bold;
+    color: #111;
+    font-size: 10px;
+    position: absolute;
+    left: 65%;
+    bottom: 20px;
+}
+#statusBar4::after {
+    content: "Completed";
+    color: #111;
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    left: 87%;
+    bottom: 20px;
+}
+#statusBar5::before {
+    content: "Quote Sent";
+    font-weight: bold;
+    color: #111;
+    font-size: 10px;
+    position: absolute;
+    left: 65%;
+    bottom: 20px;
+}
+#statusBar5::after {
+    content: "Rejected";
+    color: #111;
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    left: 87%;
+    bottom: 20px;
+}
+
+#transporter-badge {
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+  .transporter-card {
+      background-color: white;
+      border-radius: 8px;
+      height: 60px;
+      width: 200px;
+  }
+
+
+#select {
+    color : white;
+    background-color:gray;
+    border-radius: 12px;
+}
+
+  #exampleSearch {
+    width : 30% ;
+    margin-right: 2%;
+  }
+
+  #check {
+      padding-left: 80px;
+  }
+
+  #contract-badge {
+      color:white;
+      background-color: blue;
+      margin-left: -14px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px 0 0 10px; 
+        
+    }
+
+#hha {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 8px;
+}
+
+#arrow {
+    font-size: 40px;
+}
+
+#close-btn {
+    display:block;
+    box-sizing:border-box;
+    width:50px;
+    height:50px;
+    border-width:3px;
+    border-style: solid;
+    border-color:blue;
+    border-radius:100%;
+    background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 50%, white 46%,  white 30%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 50%, white 30%,  white 30%,transparent 56%, transparent 100%);
+    background-color:blue;
+    box-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    position: absolute;
+    cursor: pointer;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -15px;
+    top: -18px;
+    font-size: 24px;
+
+}
+
+.popup {  
+    position: fixed;  
+    width: 120%;  
+    height: 150%;  
+    top: 0;  
+    left: 0;  
+    right: 0;  
+    bottom: 0;  
+    margin: auto;  
+    background-color: rgba(0,0,0, 0.5);  
+  }  
+
+  .changePop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
+  }
+
+
+  .popup\_inner {  
+    position: absolute;  
+    left: 15%;  
+    right: 25%;  
+    top: 25%;  
+    bottom: 25%;  
+    margin: auto;  
+    background: white;  
+  }
+
+  .changePop_inner {
+    position: absolute;
+    left: 18%;
+    right: 10%;
+    top: 60%;
+    bottom: 0%;
+    margin: auto;
+    background: white;
+    overflow: scroll;
+  }
+
+  #transcard {
+      padding :20px;
+  }
+
+  #entop {
+      font-size: 20px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color:lightgray;
+      margin: 0;
+      padding-left: 20px;
+      width:100%;
+  }
+
+  #submit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    background-color: blue;
+    width: 100px;
+    height: 40px;    
+    color: white;
+    font-size: 20px;
+    border: blue;
+  }
+
+  #submit:active {
+      border: blue;
+  }
+
+  #commission-box {
+      width : 20%;
+      border-radius: 10px;
+  }
+
+#barStatus {
+    display: flex;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+#barStatus1 {
+    height: 3px;
+    width: 50%;
+}
+#barStatus3 {
+    height: 3px;
+    width: 50%;
+}
+
+/* #siti {
+    margin-top: 8px;
+} */
+
+#opt-cn {
+    background-color: blue;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    font-weight: bold;
+    color: white;
+    padding-left: 7px;
+    padding-right: -10px;
+
+}
+
+
+#loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    margin-top: 25%;
+    margin-left: 45%;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+.popover{
+    width: -webkit-fill-available;
+    left: -165px;
+    max-width: 375px;
+    .arrow{
+        left: 294px;
+    }
+}
+    
+.custom-line-input {
+    width: 100%;
+    display: block;
+    border: 1px solid #ccc;
+    border-style: none none solid none;
+    background: transparent;
+}
+
+.tx-10 {
+    font-size: 10px;
+}
+.tx-black {
+    color: black;
+}
+.tx-grey {
+    color: grey;
+}
+.cr-pointer {
+    cursor: pointer;
+}
+
+.form-group .iRISHI span {
+    font-size: 12px !important;
+    color: black;
+}
+.form-group .LBGII {
+    font-size: 12px !important;
+    color: black;
+}
+.form-group input.LBGII {
+    border-bottom: 1px solid #111 !important;
+}
+.single-search .iRISHI {
+    border-bottom: 1px solid #111 !important;
+}
+.customer {
+    background-color: transparent;
+    height: 20px;
+    margin-right: -5px;
+}
+.filter {
+    margin-top: -20px;
+}
+
+.fa-circle-o-notch {
+    /* padding-left: 140px; */
+    color: blue;
+}
+
+.status-text {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.statusBall{
+color: "#63c2de"
+}
+
+h5 {
+    width: 100%;
+}
