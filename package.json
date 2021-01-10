@@ -38,6 +38,7 @@
     "i18next": "^19.6.3",
     "i18next-browser-languagedetector": "^5.0.0",
     "i18next-xhr-backend": "^3.2.2",
+    "jquery": "^3.5.1",
     "moment": "^2.24.0",
     "multiselect-react-dropdown": "^1.4.7",
     "node-sass": "^4.12.0",

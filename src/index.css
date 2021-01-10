@@ -46,3 +46,15 @@
 .dropdown-item{
     white-space: unset !important;;
 }
+
+.intialiseData{
+margin:50px;
+}
+
+.validationSpan{
+    color:red
+}
+
+.reverseTransaction{
+    margin-right:5px;
+}

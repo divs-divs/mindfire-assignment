@@ -2,12 +2,7 @@ import React, { Component, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
 import { Container } from 'reactstrap';
-import auth from '../../utils/authentication'
-import constant from '../../constants/constant';
-import { withTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import HttpTransferService from '../../utils/httptransfer'
-
 import {
   AppAside,
   AppFooter,
@@ -26,10 +21,13 @@ import navigation from '../../_nav';
 // routes config
 import routes from '../../routes';
 
+if (localStorage.getItem("name")==null) {
+  window.location.href = '/login'
+}
+
 const DefaultAside = React.lazy(() => import('./DefaultAside'));
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
-const httptransfer = new HttpTransferService();
 
 var navItems = { items: [] };
 
@@ -38,7 +36,6 @@ class DefaultLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      change_password:false
      };
     if (navigation) {
       navigation.items.map((element, i) => {
@@ -52,8 +49,8 @@ class DefaultLayout extends Component {
           element.name = "AirCraft"
           navItems.items.push(element);
         }
-        if (element.name === "Transation") {
-          element.name = "Transation"
+        if (element.name === "Transaction") {
+          element.name = "Transaction"
           navItems.items.push(element);
         }
         if (element.name === "Reports") {
@@ -69,17 +66,9 @@ class DefaultLayout extends Component {
 
 loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
-signOut(e) {
-  e.preventDefault()
-  httptransfer.logoutSession()
-  .then (response => {
-      if (response.status === 200) {
-        localStorage.removeItem('entity_id')
-        localStorage.removeItem('user_info')
-        localStorage.removeItem('client_id')
+signOut() {
+        localStorage.clear();
         this.props.history.push('/login')
-      }
-  })
 }
 
 render() {
@@ -87,7 +76,7 @@ render() {
     <div className="app">
       <AppHeader fixed>
         <Suspense fallback={this.loading()}>
-          <DefaultHeader onLogout={e => this.signOut(e)} />
+          <DefaultHeader onLogout={() => this.signOut()} />
         </Suspense>
       </AppHeader>
       <div className="app-body">
@@ -137,9 +126,5 @@ render() {
   );
 }
 }
-
-DefaultLayout.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default (DefaultLayout);

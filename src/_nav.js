@@ -1,17 +1,9 @@
-import constant from "./constants/constant";
-import auth from "./utils/authentication";
-function getName () {
-  let authObject = new auth()
-  let user = JSON.parse(authObject.getUserInfo());
-  if(!user) {
-    return ''
-  }
-}
+
 export default {
   items: [
     {
       title: true,
-      name: getName(),
+      name: localStorage.getItem("name"),
       wrapper: {
         element: '',
         attributes: {},
@@ -34,13 +26,13 @@ export default {
       icon: 'fa fa-users'
     },
     {
-      name: 'Transation',
-      url: '/manageuser',
+      name: 'Transaction',
+      url: '/transactions',
       icon: 'fa fa-users'
     },
     {
       name: 'Reports',
-      url: '/manageuser',
+      url: '/reports',
       icon: 'fa fa-users'
     },
 

@@ -16,8 +16,6 @@ import {
   Row,
   Label,
 } from "reactstrap";
-import firebase from '../../../firebase';
-import 'react-phone-input-2/lib/style.css'; 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -34,11 +32,6 @@ class Login extends Component {
       username: "",
       password: "",
       isPopupOpen: false,
-      showOTP:false,
-      showOTPEntryScreen:false,
-      country_code:'',
-      count:0,
-      changePassword:false,
       users:[]
     };
   }
@@ -49,7 +42,6 @@ class Login extends Component {
   .then(data => this.setState({
     users:data
   }));
-  console.log("aa",this.state.username,"aaa",this.state.password);
   if(this.state.users.filter(a=>a.email==this.state.username)[0]&&this.state.users.filter(a=>a.password==this.state.password)[0]){
     localStorage.setItem("name", this.state.username);
     window.location.href='/dashboard';
@@ -59,30 +51,6 @@ class Login extends Component {
   }
   }
 
-  setTranslationLanguage() {
-    this.props.i18n.changeLanguage(localStorage.getItem("user_preffered_language"));
-  }
-
-
-
-  setUserInfoInLocalStorage(apiresponse) {
-    return new Promise((resolve, reject) => {
-      localStorage.setItem("user_info", JSON.stringify(apiresponse["data"]));
-      localStorage.setItem("change_password", JSON.parse(JSON.stringify(apiresponse["data"])).change_password);
-      localStorage.setItem("user_preffered_language", JSON.parse(JSON.stringify(apiresponse["data"])).preffered_language)
-      localStorage.setItem("isLoggedin", "true");
-      localStorage.setItem("token", apiresponse["headers"]["x-auth-token"]);
-      localStorage.setItem(
-        "serveruniqueid",
-        apiresponse["headers"]["server_unique_id"]
-      );
-      localStorage.setItem(
-        "refreshtoken",
-        apiresponse["headers"]["refresh-token"]
-      );
-      resolve();
-    })
-  }
 
   handleInputChange(event) {
     const target = event.target;

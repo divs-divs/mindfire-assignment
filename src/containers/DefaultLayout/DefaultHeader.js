@@ -5,18 +5,8 @@ import { Badge, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle
 import PropTypes from 'prop-types';
 import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import profile from '../../assets/img/profile-avatar.png'
-import AuthenticationService from '../../../src/utils/authentication';
-import constant from '../.././constants/constant';
-import HttpTransferService from "../../../src/utils/httptransfer";
 import utils from '../../../src/utils/date'
-import firebase from '../../../src/firebase';
-import InfiniteScroll from "react-infinite-scroll-component";
-import {  withTranslation } from "react-i18next";
 import moment from 'moment';
-
-const  authentication = new AuthenticationService()
-const httptransfer = new HttpTransferService();
-
 
 const propTypes = {
   children: PropTypes.node,
@@ -66,7 +56,7 @@ class DefaultHeader extends Component {
             </DropdownToggle>
             <DropdownMenu direction="down">
               <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
-              <DropdownItem onClick={e => this.props.onLogout(e)}><i className="fa fa-lock"></i>Logout</DropdownItem>
+              <DropdownItem onClick={() => this.props.onLogout()}><i className="fa fa-lock"></i>Logout</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
@@ -75,11 +65,5 @@ class DefaultHeader extends Component {
   }
 }
 
-DefaultHeader.propTypes = propTypes;
-DefaultHeader.defaultProps = defaultProps;
 
-DefaultHeader.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default (withTranslation("translations")(DefaultHeader));
+export default (DefaultHeader);
