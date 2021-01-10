@@ -46,18 +46,60 @@ class FuelConsumptionReport extends Component {
 
     render () {
         let consumptionReport = [];
-            if (this.state.transactions.length&&this.state.airports.length&&this.state.aircrafts.length) {
-             consumptionReport = this.state.transactions.map((item,index) => (
-               <tr>
-                <td>{this.state.airports && typeof this.state.airports.filter(airport=>airport.id==item.airport_id)[0] != undefined &&this.state.airports.filter(airport=>airport.id==item.airport_id)[0].name}</td>
-                <td>{(item.transaction_date_time.replace('T',' ')).replace('Z','')}</td>
-                <td>{item.transaction_type}</td>
-                <td>{this.state.airports && this.state.airports.filter(airport=>airport.id==item.airport_id)[0] !=undefined &&  this.state.airports.filter(airport=>airport.id==item.airport_id)[0]!=undefined && this.state.airports.filter(airport=>airport.id==item.airport_id)[0].capacity}</td>
-                <td>{this.state.aircrafts && item.transaction_type=="OUT" && this.state.aircrafts.filter(aircrafts=>aircrafts.id==item.aircraft_id)[0] !=undefined && this.state.aircrafts.filter(aircrafts=>aircrafts.id==item.aircraft_id)[0].aircraft_no}</td>
-                <td>{this.state.airports && this.state.airports.filter(airport=>airport.id==item.airport_id)[0]!=undefined && this.state.airports.filter(airport=>airport.id==item.airport_id)[0].available}</td>
-              </tr>
+        let noOfAirports = [];
+        let data =[];
+          this.state.transactions.map((item,index) => {
+              if(!noOfAirports.includes(item.airport_id)){
+                 noOfAirports.push(item.airport_id)
+              }
+          }
+         )
+         if(this.state.transactions.length&&this.state.airports.length&&this.state.aircrafts.length){
+             for(let i = 0 ;i<noOfAirports.length;i++){
+             let fuelAvailable=0;
+              consumptionReport .push ( 
+               <div className="reportDiv">
+                  <br/>
+                  <tr className="airportRow">
+                       <th scope="col-md-6" class="thead-dark reportHeading">Airport</th>
+                       <th scope="col-md-6 " class="thead-dark reportHeading">{this.state.airports && typeof this.state.airports.filter(airport=>airport.id==noOfAirports[i])[0] != undefined &&this.state.airports.filter(airport=>airport.id==noOfAirports[i])[0].name}</th>
+                </tr>
+                <tr>
+                       <td class="reportColumn col-md-2 reportHeading">Transaction Date Time</td>
+                       <td class="reportColumn col-md-2 reportHeading">Transaction Type</td>
+                       <td class="reportColumn col-md-2 reportHeading">Fuel Quantity</td>
+                       <td class="reportColumn col-md-2 reportHeading">Aircraft</td>
+                </tr> 
+                </div> )         
+               this.state.transactions.map((item,index) => (
+                (
+                 item.airport_id==noOfAirports[i]?
+                   item.transaction_type == "IN" ?
+                   (fuelAvailable = fuelAvailable+item.quantity) :
+                   (fuelAvailable = fuelAvailable - item.quantity)
+                :null),
+                 item.airport_id==noOfAirports[i]?
+                 consumptionReport.push(
+                  <div>
+                    <tr>
+                     <td class="reportColumn col-md-2">{(item.transaction_date_time.replace('T',' ')).replace('Z','')}</td>
+                     <td class="reportColumn col-md-2">{item.transaction_type}</td>
+                     <td class="reportColumn col-md-2">{item.quantity}</td>
+                     <td class="reportColumn col-md-2">{this.state.aircrafts && item.transaction_type=="OUT" && this.state.aircrafts.filter(aircrafts=>aircrafts.id==item.aircraft_id)[0] !=undefined && this.state.aircrafts.filter(aircrafts=>aircrafts.id==item.aircraft_id)[0].aircraft_no}</td>
+                     <td class="reportColumn col-md-2">{}</td>
+                    </tr>
+                 </div>
+              ) 
+           :null
       ))
-    }
+              consumptionReport.push(
+                <tr>
+                       <th scope="col-sm-6" class="thead-dark reportBottom">Fuel Available</th>
+                       <th scope="col-sm-6" class="thead-dark reportBottom">{fuelAvailable}</th>
+                </tr>
+              )
+             }
+         }
 
         const {t} = this.props;
         const closebtn = <button className="close" onClick={this.props.togglePopup}>&times;</button>;
@@ -74,16 +116,6 @@ class FuelConsumptionReport extends Component {
                 </ModalHeader>
                 <ModalBody >     
                    <table class="table" ref={ref}>
-                     <thead class="thead-dark">
-                      <tr>
-                       <th scope="col">Airport</th>
-                       <th scope="col">Date Time</th>
-                       <th scope="col">Type</th>
-                       <th scope="col">Fuel</th>
-                       <th scope="col">Aircraft</th>
-                       <th scope="col">Fuel Available</th>
-                      </tr>
-                   </thead>
                    <tbody>
                       {consumptionReport}
                  </tbody>

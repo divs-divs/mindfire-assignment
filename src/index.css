@@ -43,6 +43,10 @@
     font-size: 12px;
 }
 
+.reportColumn{
+    width:25% !important
+}
+
 .dropdown-item{
     white-space: unset !important;;
 }
@@ -66,4 +70,23 @@ margin:50px;
 .exportToPdf{
     float:right;
     font-size:15px
+}
+
+.reportHeading{
+    border-top:none !important;
+}
+
+.reportBottom{
+    border-bottom:1px solid #c8ced3 !important;
+    margin-bottom:5%;
+}
+
+.reportDiv{
+     width: 113%;
+    border-bottom: 1px solid;
+    marginTop:2% !important;
+}
+
+.airportRow{
+   background-color: aliceblue;
 }
