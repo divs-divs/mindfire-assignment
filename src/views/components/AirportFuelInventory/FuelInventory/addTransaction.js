@@ -64,7 +64,8 @@ class AddTransaction extends Component {
            data.map(element=>{
            airportListJson.push({
             label:element.name,
-            value:element.id
+            value:element.id,
+            available:parseInt(element.available)
         })})
      );
      this.setState({
@@ -139,6 +140,22 @@ class AddTransaction extends Component {
 
     }},
       success: response => {
+    if(this.state.transactionType.value=="OUT" && this.state.selectedAirport.available!=null){
+     $.ajax({
+      url: `http://438-ruby-on-rails.code2rock.mindfire-solutions.in/api/v1/airports/${this.state.selectedAirport.value}`,
+      type: "PUT",
+      data: { airport:{available: (this.state.selectedAirport.available - parseInt(this.state.quantity))
+
+    }}})
+         } 
+    if(this.state.transactionType.value=="IN" && this.state.selectedAirport.available!=null){
+     $.ajax({
+      url: `http://438-ruby-on-rails.code2rock.mindfire-solutions.in/api/v1/airports/${this.state.selectedAirport.value}`,
+      type: "PUT",
+      data: { airport:{available: (this.state.selectedAirport.available + parseInt(this.state.quantity))
+
+    }}})
+         } 
         this.props.togglePopup();
         this.props.refresh();
       }

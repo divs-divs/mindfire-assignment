@@ -56,7 +56,7 @@ class FuelConsumptionReport extends Component {
          )
          if(this.state.transactions.length&&this.state.airports.length&&this.state.aircrafts.length){
              for(let i = 0 ;i<noOfAirports.length;i++){
-             let fuelAvailable=0;
+             let fuelAvailable=this.state.airports && typeof this.state.airports.filter(airport=>airport.id==noOfAirports[i])[0] != undefined &&parseInt(this.state.airports.filter(airport=>airport.id==noOfAirports[i])[0].available);
               consumptionReport .push ( 
                <div className="reportDiv">
                   <br/>
@@ -72,12 +72,12 @@ class FuelConsumptionReport extends Component {
                 </tr> 
                 </div> )         
                this.state.transactions.map((item,index) => (
-                (
-                 item.airport_id==noOfAirports[i]?
-                   item.transaction_type == "IN" ?
-                   (fuelAvailable = fuelAvailable+item.quantity) :
-                   (fuelAvailable = fuelAvailable - item.quantity)
-                :null),
+                // (
+                //  item.airport_id==noOfAirports[i]?
+                //    item.transaction_type == "IN" ?
+                //    (fuelAvailable = fuelAvailable+parseInt(item.quantity)) :
+                //    (fuelAvailable = fuelAvailable - parseInt(item.quantity))
+                // :null),
                  item.airport_id==noOfAirports[i]?
                  consumptionReport.push(
                   <div>
