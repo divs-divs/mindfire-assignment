@@ -19,7 +19,7 @@ class AirportAddModal extends Component {
                 <ModalHeader close={closebtn}> Add Airport </ModalHeader>
                 <ModalBody >
                     <ToastContainer/>
-                    <AddAirport refresh={this.props.refresh} entityId={this.props.entityId} togglePopup={this.props.togglePopup} />
+                    <AddAirport refresh={this.props.refresh} togglePopup={this.props.togglePopup} />
                 </ModalBody>
             </Modal>
         )

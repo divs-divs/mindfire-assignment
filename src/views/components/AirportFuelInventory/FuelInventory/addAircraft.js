@@ -76,7 +76,7 @@ class AddAircraft extends Component {
               <Label for="aircraft_number">Aircraft Name</Label>
               <Input type="text" className="text-capitalize" name="aircraft_number" onChange={this.handleInputChange} id="aircraft_number" placeholder="Enter aircraft number" required/>
             <div className="validationSpan">
-                {this.validator.message('Aircraft Number', this.state.aircraft_no, validate.required)}
+                {this.validator.message('Aircraft Number', this.state.aircraft_number, validate.required)}
             </div>
             </div>
           </div>

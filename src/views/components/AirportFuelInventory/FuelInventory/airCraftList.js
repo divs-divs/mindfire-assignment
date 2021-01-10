@@ -63,7 +63,6 @@ class AircraftList extends Component {
                   refresh = {()=>this.getAircrafts()}
                   showPopup={this.state.showPopup}
                   togglePopup={this.togglePopup.bind(this)}
-                  entityType={this.props.entityType}
                 />
                 : null}
               <table className="table table-responsive-sm table-striped">

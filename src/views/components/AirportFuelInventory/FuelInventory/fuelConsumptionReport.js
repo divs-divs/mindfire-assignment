@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import Pdf from "react-to-pdf";
+const ref = React.createRef();
 
 class FuelConsumptionReport extends Component {
 
@@ -63,11 +65,15 @@ class FuelConsumptionReport extends Component {
             <Modal isOpen={this.props.showPopup}
                 size="lg"
                 toggle={this.props.togglePopup}
-                className="modal-dialog"
+                className="modal-dialog modal-report"
             >
-                <ModalHeader close={closebtn}> Fuel Consumption Report </ModalHeader>
+                <ModalHeader close={closebtn}> Fuel Consumption Report 
+                  <Pdf targetRef={ref} filename="Fuel_Consumption_Report.pdf">
+                    {({ toPdf }) => <a href="#" onClick={toPdf} className="exportToPdf"> Export To PDF</a>}
+                  </Pdf>
+                </ModalHeader>
                 <ModalBody >     
-                   <table class="table">
+                   <table class="table" ref={ref}>
                      <thead class="thead-dark">
                       <tr>
                        <th scope="col">Airport</th>

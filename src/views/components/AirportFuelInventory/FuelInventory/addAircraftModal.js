@@ -19,7 +19,7 @@ class AircraftAddModal extends Component {
                 <ModalHeader close={closebtn}> Add Aircraft </ModalHeader>
                 <ModalBody >
                     <ToastContainer/>
-                    <AddAircraft refresh={this.props.refresh} entityId={this.props.entityId} togglePopup={this.props.togglePopup} />
+                    <AddAircraft refresh={this.props.refresh}  togglePopup={this.props.togglePopup} />
                 </ModalBody>
             </Modal>
         )

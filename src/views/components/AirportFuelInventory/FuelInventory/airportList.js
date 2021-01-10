@@ -60,10 +60,9 @@ class AirportList extends Component {
             <FontAwesomeIcon icon={faPlus} size="sm" className="mr-1" />Add Airport</button>
               {this.state.showPopup ? 
                   <AirportAddModal
-                  entityId = {this.props.entityId}
                   showPopup={this.state.showPopup}
                   togglePopup={this.togglePopup.bind(this)}
-                  refresh={()=>this.getUsers()}
+                  refresh={()=>this.getAirports()}
                 />
                 : null}
               <table className="table table-responsive-sm table-striped">

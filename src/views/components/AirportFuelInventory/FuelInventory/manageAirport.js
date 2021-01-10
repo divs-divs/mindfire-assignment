@@ -23,10 +23,7 @@ class ManageAirports extends Component {
                 <div className="col-xs-6 col-sm-6 col-md-6 col-lg-8 mb-1">
                 </div>
                 <div className="col-12">
-                    <AirportList key="userList"
-                        entityId={''}
-                        hideDelete={true}
-                        entityType={''}
+                    <AirportList key="airportList"
                     />
                 </div>
                
@@ -42,3 +39,4 @@ class ManageAirports extends Component {
 };
 
 export default (ManageAirports);
+

@@ -58,3 +58,12 @@ margin:50px;
 .reverseTransaction{
     margin-right:5px;
 }
+
+ .modal-report .modal-title{
+    width:-webkit-fill-available;
+}
+
+.exportToPdf{
+    float:right;
+    font-size:15px
+}
