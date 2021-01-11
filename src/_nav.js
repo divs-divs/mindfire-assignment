@@ -11,7 +11,6 @@ export default {
     },
     {
       name: 'Dashboard',
-      // url: '/dashboard',
       icon: 'icon-pie-chart',
     },
 
@@ -33,7 +32,7 @@ export default {
     {
       name: 'Reports',
       url: '/reports',
-      icon: 'fa fa-users'
+      icon: 'fa fa-map'
     },
 
 

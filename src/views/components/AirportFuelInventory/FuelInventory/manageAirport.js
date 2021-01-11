@@ -9,33 +9,33 @@ import "react-toastify/dist/ReactToastify.css";
 class ManageAirports extends Component {
 
 
-  render() {
-    return (
-      <div className="mt-4">
-        <ToastContainer/>
-        <div className="col-sm-12 col-12">
-          <div className="card">
-            <div className="card-header font-weight-bold">
-               Airports
+    render() {
+        return (
+            <div className="mt-4">
+                <ToastContainer />
+                <div className="col-sm-12 col-12">
+                    <div className="card">
+                        <div className="card-header font-weight-bold">
+                            Airports
             </div>
-            <div className="card-body">
-              <div className="row">
-                <div className="col-xs-6 col-sm-6 col-md-6 col-lg-8 mb-1">
+                        <div className="card-body">
+                            <div className="row">
+                                <div className="col-xs-6 col-sm-6 col-md-6 col-lg-8 mb-1">
+                                </div>
+                                <div className="col-12">
+                                    <AirportList key="airportList"
+                                    />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="col-12">
-                    <AirportList key="airportList"
-                    />
+                <div>
                 </div>
-               
-              </div>
             </div>
-          </div>
-        </div>
-        <div>
-        </div>
-      </div>
-    );
-  }
+        );
+    }
 };
 
 export default (ManageAirports);

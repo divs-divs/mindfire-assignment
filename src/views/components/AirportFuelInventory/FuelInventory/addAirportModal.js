@@ -7,8 +7,8 @@ import AddAirport from "./addAirport";
 
 class AirportAddModal extends Component {
 
-    render () {
-        const {t} = this.props;
+    render() {
+        const { t } = this.props;
         const closebtn = <button className="close" onClick={this.props.togglePopup}>&times;</button>;
         return (
             <Modal isOpen={this.props.showPopup}
@@ -18,13 +18,12 @@ class AirportAddModal extends Component {
             >
                 <ModalHeader close={closebtn}> Add Airport </ModalHeader>
                 <ModalBody >
-                    <ToastContainer/>
+                    <ToastContainer />
                     <AddAirport refresh={this.props.refresh} togglePopup={this.props.togglePopup} />
                 </ModalBody>
             </Modal>
         )
     }
-  }
+}
 
-  export default (AirportAddModal);
-  
+export default (AirportAddModal);

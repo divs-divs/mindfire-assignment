@@ -7,8 +7,8 @@ import AddTransaction from "./addTransaction";
 
 class TransactionAddModal extends Component {
 
-    render () {
-        const {t} = this.props;
+    render() {
+        const { t } = this.props;
         const closebtn = <button className="close" onClick={this.props.togglePopup}>&times;</button>;
         return (
             <Modal isOpen={this.props.showPopup}
@@ -16,15 +16,14 @@ class TransactionAddModal extends Component {
                 toggle={this.props.togglePopup}
                 className="modal-dialog"
             >
-                <ModalHeader close={closebtn}> {this.props.transactionType=="IN"?"Add Transaction":"Reverse Transaction"}</ModalHeader>
+                <ModalHeader close={closebtn}> {this.props.transactionType == "IN" ? "Add Transaction" : "Reverse Transaction"}</ModalHeader>
                 <ModalBody >
-                    <ToastContainer/>
+                    <ToastContainer />
                     <AddTransaction refresh={this.props.refresh} transactionType={this.props.transactionType} togglePopup={this.props.togglePopup} />
                 </ModalBody>
             </Modal>
         )
     }
-  }
+}
 
-  export default (TransactionAddModal);
-  
+export default (TransactionAddModal);
